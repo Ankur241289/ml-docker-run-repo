@@ -7,7 +7,9 @@ on:
 jobs:
   ml_run:
     runs-on: ubuntu-latest # runs the workflow on the latest ubuntu version
-
+    container:
+      image: jupyter/scipy-notebook:latest # uses the jupyter/scipy-notebook docker image
+      options: --user root # runs the container as root user to allow installation of packages
     steps:
       - name: Checkout code
         uses: actions/checkout@v4 # uses the checkout action to checkout the code
